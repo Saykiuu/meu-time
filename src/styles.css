@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500&family=Inter:wght@400;500&family=Roboto+Mono&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    vertical-align: baseline;
+    list-style: none;
+    border: 0
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+:root{
+    --principal: #ff4655;
+    --preto: #111;
+    --sombra: #2b2a29;
+    --fundo: #ece8e1;
+    --branco: #f9f9f9;
+}
+
+*:not(.material-icons){
+    font-family: 'Inter', sans-serif;
+}

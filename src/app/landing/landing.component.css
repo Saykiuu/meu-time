@@ -1,0 +1,51 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100vw;
+    background-color: var(--preto);
+    height: 70px;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    list-style: armenian;
+}
+nav ul li{
+    background-color: var(--sombra);
+    margin: 10px;
+    border-radius: 5px;
+   
+}
+
+.btn{
+    background-color: var(--principal);
+    color: var(--branco);
+}
+
+.corpo{
+    height: calc(100vh - 70px);
+    
+    background-image: linear-gradient(180deg, var(--preto), var(--fundo));
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.descricao{
+    width: 20%;
+    height: 50%;
+    margin: 10%;
+    color: var(--branco);
+}
+
+.descricao ul li{
+    list-style: circle;
+}
+
+a{
+    color: var(--principal);
+    
+}
