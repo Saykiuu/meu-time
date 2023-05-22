@@ -1,0 +1,109 @@
+.list-ligas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100vw;
+    
+}
+
+
+.list-menu{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.list-itens{
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 80px;
+    background-color: var(--fundo);
+    box-shadow: 0 3px 5px var(--sombra2);
+    transition: all 0.2s;    
+}
+
+.list-itens:hover{
+    cursor: pointer;
+    background-color: var(--principal);
+    color: var(--branco);
+
+}
+
+nav{
+    
+    width: 100vw;
+    height: 70px;
+    background-color: var(--preto);
+}
+
+nav ul {
+    padding: 0;
+    margin: 0 ;
+    display: flex;
+    justify-content: center;
+}
+
+.actions{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+}
+
+.actions div{
+    display: flex;
+    width: 260px;
+}
+.btn{
+    background-color: var(--principal);
+    margin: 0 5px 0 5px;
+    color: var(--branco);
+}
+
+.selects{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.logo img{
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.cards{
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.card{
+    box-shadow: 0 3px 5px #00000020;
+    padding: 1rem;
+    background-color: white;
+}
+
+.group-row{
+    display: flex;
+    flex-wrap: wrap
+}
+
+section{
+    background-color: var(--branco);
+    overflow-x: hidden;
+}
+
+.empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 168px);
+}

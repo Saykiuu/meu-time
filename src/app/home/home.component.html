@@ -1,0 +1,186 @@
+<section>
+    <nav>
+        <ul>
+            <li><img src="assets/my-team-logo.png" width="100px"></li>
+    
+        </ul>
+    </nav>
+    
+   
+    <div class="selects">
+        <div class="m-2">
+            <div class="p-1">País</div>
+            <p-autoComplete [(ngModel)]="pais" [suggestions]="paisesFiltrados" (completeMethod)="filtraPaises($event)"
+                field="name">
+                <ng-template let-countr pTemplate="item">
+                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{countr.name}}</div>
+                    <img src="{{countr.flag}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                </ng-template>
+            </p-autoComplete>
+        </div>
+    
+        <div class="m-2">
+            <div class="p-1">Liga</div>
+            <p-autoComplete [(ngModel)]="pais" [suggestions]="paisesFiltrados" (completeMethod)="filtraPaises($event)"
+                field="name">
+                <ng-template let-countr pTemplate="item">
+                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{countr.name}}</div>
+                    <img src="{{countr.flag}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                </ng-template>
+            </p-autoComplete>
+        </div>
+    
+        <div class="m-2">
+            <div class="p-1">Time</div>
+            <p-autoComplete [(ngModel)]="pais" [suggestions]="paisesFiltrados" (completeMethod)="filtraPaises($event)"
+                field="name">
+                <ng-template let-countr pTemplate="item">
+                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{countr.name}}</div>
+                    <img src="{{countr.flag}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                </ng-template>
+            </p-autoComplete>
+        </div>
+    
+        <div class="m-2">
+            <div class="p-1">Temporada</div>
+            <p-autoComplete [(ngModel)]="pais" [suggestions]="paisesFiltrados" (completeMethod)="filtraPaises($event)"
+                field="name">
+                <ng-template let-countr pTemplate="item">
+                    <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{countr.name}}</div>
+                    <img src="{{countr.flag}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                </ng-template>
+            </p-autoComplete>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div class="form-group group-row">
+            <div class="col-md-7 p-1">
+                <div class="card ">
+                    <table class="table tables-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">idade</th>
+                                <th scope="col">Brasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://media.api-sports.io/football/players/276.png" alt="img"
+                                        style="width: 30px;">
+                                </td>
+                                <td>
+                                    Neymar Júnio
+                                </td>
+                                <td>
+                                    28
+                                </td>
+                                <td>
+                                    Brasil
+                                </td>
+        
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <div class="col-md-5 p-1">
+                <div class="card">
+                    <table class="table tables-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Formação</th>
+                                <th scope="col">Utilizadas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    4-3-2-1
+                                </td>
+                                <td>
+                                    32
+                                </td>
+        
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="form-group group-row">
+            <div class="col-lg-4 p-1">
+                <div class="card">
+                    <table class="table tables-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Jogos</th>
+                                <th scope="col">Vitórias</th>
+                                <th scope="col">Derrotas</th>
+                                <th scope="col">empates</th>
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    32
+                                </td>
+                                <td>
+                                    32
+                                </td>
+                                <td>
+                                    32
+                                </td>
+                                <td>
+                                    32
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+            </div>
+            <div class="col-lg-8 p-1">
+                <div class="card ">
+                    <canvas id="MyChart">{{chart}}</canvas>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="empty">
+        Preencha os campos
+    </div>
+ 
+        <!-- <div class="loading-bg">
+            <div class="loading-center">
+                <div class="loader"></div>
+            </div>
+        </div> -->
+
+</section>
+
+
+    <!-- detalhes time -->
+    <!--     
+        <div class="card">
+            <div class="logo">
+                <img src="{{pais!.flag}}" alt="logo-time" style="width: 200px;">
+            </div>
+            <div class="descricao">
+                <p>Nome: Manchester United</p>
+                <p>País: England</p>
+                <p>Fundação: 1878</p>
+                <p>Endereço: Sir Matt Busby Way,</p>
+                <p>cidade: Manchester</p>
+            </div>
+        </div> -->
+    <!-- detalhes escalação -->
