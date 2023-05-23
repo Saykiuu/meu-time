@@ -42,6 +42,10 @@ export class HomeComponent implements OnInit {
   disabledLeague = true;
   disabledTeam = true;
 
+  tempTeam ={
+    logo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5dMkvctJUYLBJ2fqV7c56YV7FB1BodNrXL2YZh1MEEWOOi8BOUmJQsjV1zRp7obQ4QN8&usqp=CAU",
+    name: ''
+  }
   empty = true;
   
   public chart: any;
@@ -221,8 +225,14 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < tempo.length; i++) {
           valor.push(goals[tempo[i]].total)
         }
+        if(this.chart){
+          this.chart.destroy();
+          this.createChart(tempo, valor );
 
-        this.createChart(tempo, valor);
+        }else{
+
+          this.createChart(tempo, valor);
+        }
 
         let esc = con.response.lineups;
         esc.forEach((e:any) => {
@@ -297,7 +307,6 @@ export class HomeComponent implements OnInit {
   filtraLiga(event: any) {
     let filtered: any[] = [];
     let query = event.query;
-
     for (let i = 0; i < this.ligas.length; i++) {
       let ligas = this.ligas[i];
       if (ligas.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
@@ -398,6 +407,17 @@ export class HomeComponent implements OnInit {
         }
       break
       case 'time':
+        if(this.time != undefined){
+          this.tempTeam = {
+            logo: this.time?.logo,
+            name: this.time?.name
+          }
+        }else{
+          this.tempTeam ={
+            logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5dMkvctJUYLBJ2fqV7c56YV7FB1BodNrXL2YZh1MEEWOOi8BOUmJQsjV1zRp7obQ4QN8&usqp=CAU",
+            name: ''
+          }
+        }
         this.getStatitics();
       break
     }
