@@ -56,10 +56,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     
     this.http.setAPIKey();
-    
-
-    // this.getPaises();
-    // this.getSessions();
+    this.getPaises();
+    this.getSessions();
   }
 
   async getPaises(){
@@ -101,7 +99,7 @@ export class HomeComponent implements OnInit {
         });
         this.seasons.reverse();
         let newDate = new Date().getFullYear;
-        this.season = this.seasons.filter(e=> e.toString() == newDate.toString() )[0];
+        this.season = this.seasons.filter(e=> e.toString() == newDate.toString())[0];
       }
 
       
@@ -186,6 +184,7 @@ export class HomeComponent implements OnInit {
         return
       }
       let con = await lastValueFrom(this.http.getListPlayers(this.time.id, this.season));
+      console.log(con)
       if(con.results != 0){
         con.response.forEach((e:any) => {
           this.players.push({
@@ -214,6 +213,7 @@ export class HomeComponent implements OnInit {
         return
       }
       let con = await lastValueFrom(this.http.getStatistic(this.time.id, this.season, this.liga.id));
+      console.log(con)
       if (con.results != 0){
         let goals = con.response.goals.for.minute;
         let tempo = Object.keys(con.response.goals.for.minute)
@@ -247,7 +247,6 @@ export class HomeComponent implements OnInit {
       console.log(error)
     }
   }
-
 
   filtraPaises(event: any){
     let filtered: any[] = [];
@@ -374,16 +373,28 @@ export class HomeComponent implements OnInit {
         }
       break
       case 'season':
-        this.getTimes();
+        if (this.liga == undefined) {
+          this.time = undefined;
+          this.disabledTeam = true;
+        } else {
+          this.time = undefined;
+          this.disabledTeam = false;
+          this.getTimes();
+        }
       break
       case 'liga':
         if (this.liga == undefined) {
           this.time = undefined;
           this.disabledTeam = true;
         }else{
-          this.time = undefined;
-          this.disabledTeam = false;
-          this.getTimes();
+          if(this.season == undefined){
+            this.time = undefined;
+            this.disabledTeam = true;
+          }else{
+            this.time = undefined;
+            this.disabledTeam = false;
+            this.getTimes();
+          }
         }
       break
       case 'time':

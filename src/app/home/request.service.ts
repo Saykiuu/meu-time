@@ -21,6 +21,9 @@ export class RequestService implements OnInit {
 
   setAPIKey(){
     let temp = sessionStorage.getItem('apiKey')
+    if(temp == null){
+      this.rt.navigate(['/'])
+    }
     this.httpOptions = {
       headers: new HttpHeaders({
         'x-rapidapi-key': temp!,
@@ -61,12 +64,12 @@ export class RequestService implements OnInit {
   }
 
   getListPlayers(id_team: number, season: number): Observable<any>{
-    let temp = `?team=${id_team}&?season=${season}`
+    let temp = `?team=${id_team}&season=${season}`
     return this.rq.get('https://v3.football.api-sports.io/players'+temp, this.httpOptions);
   }
 
   getStatistic(id_team: number, season: number, id_league: number): Observable<any>{
-    let temp = `?team=${id_team}&?season=${season}&?league=${id_league}`
+    let temp = `?team=${id_team}&season=${season}&league=${id_league}`
     return this.rq.get('https://v3.football.api-sports.io/teams/statistics' + temp, this.httpOptions);
   }
 }

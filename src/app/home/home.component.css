@@ -63,6 +63,7 @@ nav ul {
 
 .selects{
     width: 100%;
+    margin: 10px 0 20px 0;
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
@@ -96,6 +97,7 @@ nav ul {
 }
 
 section{
+    min-height: 100vh;
     background-color: var(--branco);
     overflow-x: hidden;
 }
@@ -104,6 +106,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: calc(100vh - 168px);
 }
