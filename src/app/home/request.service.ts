@@ -1,24 +1,38 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Paises } from '../paises';
-import { StorageService } from '../storage.service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class RequestService {
+export class RequestService implements OnInit {
 
-  
+  httpOptions:any;
 
-  constructor(private rq: HttpClient){}
+  constructor(
+    private rq: HttpClient, 
+    private rt: Router, 
+    ){
+    
+  }
+  ngOnInit(): void {
+    
+  }
+
+  setAPIKey(){
+    let temp = sessionStorage.getItem('apiKey')
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'x-rapidapi-key': temp!,
+        "x-rapidapi-host": "v3.football.api-sports .io"
+      })
+    };
+    
+    console.log(this.httpOptions.headers.get("x-rapidapi-key"))
+
+  }
   
-  httpOptions = {
-    headers: new HttpHeaders({
-      "x-rapidapi-key": "03a0210a81e4f5a8a5e4b1060eafe197",
-      "x-rapidapi-host": "v3.football.api-sports .io"
-      
-    })
-  };
+  
   
   getPaises(): Observable<any>{
     return this.rq.get("https://v3.football.api-sports.io/countries", this.httpOptions);

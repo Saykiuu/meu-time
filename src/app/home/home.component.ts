@@ -46,17 +46,20 @@ export class HomeComponent implements OnInit {
   
   public chart: any;
 
-  constructor(private http: RequestService, private ts: ToastrService) { }
+  constructor(
+    private http: RequestService, 
+    private ts: ToastrService,
+    ) { }
   
 
 
   ngOnInit(): void {
     
-
+    this.http.setAPIKey();
     
 
-    this.getPaises();
-    this.getSessions();
+    // this.getPaises();
+    // this.getSessions();
   }
 
   async getPaises(){
@@ -65,6 +68,7 @@ export class HomeComponent implements OnInit {
     try {
       this.loading = true;
       let con = await lastValueFrom(this.http.getPaises())
+      console.log(con);
       if (con.results != 0) {
         con.response.forEach((e: any) =>{
           this.paises.push({
@@ -96,6 +100,8 @@ export class HomeComponent implements OnInit {
           this.seasons.push(e);
         });
         this.seasons.reverse();
+        let newDate = new Date().getFullYear;
+        this.season = this.seasons.filter(e=> e.toString() == newDate.toString() )[0];
       }
 
       
