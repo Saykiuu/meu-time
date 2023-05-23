@@ -7,6 +7,7 @@ import { Ligas } from '../ligas';
 import { Times } from '../times';
 import { Jogadores } from '../jogadores';
 import {  Lineups, Results } from '../statistic';
+import { ToastrService } from 'ngx-toastr';
 Chart.register(...registerables);
 
 @Component({
@@ -45,7 +46,7 @@ export class HomeComponent implements OnInit {
   
   public chart: any;
 
-  constructor( private http: RequestService) { }
+  constructor(private http: RequestService, private ts: ToastrService) { }
   
 
 
@@ -74,14 +75,13 @@ export class HomeComponent implements OnInit {
         });
 
       }else{
-        alert('Não existe dados')
+        this.ts.warning('Não existe dados');
       }
       this.loading = false;
 
     } catch (error) {
       this.loading = false;
-      alert('erro na requisição')
-      console.log(error);
+      this.ts.error('erro na requisição')
     }
   }
 
@@ -100,12 +100,11 @@ export class HomeComponent implements OnInit {
 
       
       else{
-        alert('Não existe dados')
+        this.ts.warning('Não existe dados');
       }
       this.loading = false;
     } catch (error) {
-      alert('Erro na requisição')
-
+      this.ts.error('erro na requisição')
       this.loading = false;
     }
   }
@@ -116,7 +115,7 @@ export class HomeComponent implements OnInit {
     try {
       this.loading = true;
       if (this.pais == undefined){
-        alert('Os campos anteriores devem ser preenchidos');
+        this.ts.warning('Preencha os campos')
         return;
       }
       let con = await lastValueFrom(this.http.getLigas(this.pais.code, this.season));
@@ -132,12 +131,11 @@ export class HomeComponent implements OnInit {
         });
         
       }else{
-        alert('Não existe dados')
-
+        this.ts.warning('Não existe dados')
       }
       this.loading = false;
     } catch (error) {
-      alert('erro na requisição')
+      this.ts.error('erro na requisição')
       this.loading = false;
     }
   }
@@ -148,7 +146,7 @@ export class HomeComponent implements OnInit {
     try {
       this.loading = true;
       if(this.liga == undefined){
-        alert('preencha os campos')
+        this.ts.warning('Preencha os campos')
         return
       }
       let con = await lastValueFrom(this.http.getTeam(this.liga.id, this.season));
@@ -163,12 +161,12 @@ export class HomeComponent implements OnInit {
           });
         });
       }else{
-        alert('Não existe dados')
+        this.ts.warning('Não existe dados')
         
       }
       this.loading = false;
     } catch (error) {
-      alert('Erro na requisição')
+      this.ts.error('erro na requisição')
       this.loading = false;
 
     }
@@ -178,7 +176,7 @@ export class HomeComponent implements OnInit {
     this.players = [];
     try {
       if (this.time == undefined || this.season == undefined){
-        alert('Preencha os campos corretamente');
+        this.ts.warning('Preencha os campos')
         return
       }
       let con = await lastValueFrom(this.http.getListPlayers(this.time.id, this.season));
@@ -192,10 +190,10 @@ export class HomeComponent implements OnInit {
           }) 
         });
       }else{
-        alert('Não existe dados')
+        this.ts.warning('Não existe dados')
       }
     } catch (error) {
-      alert('Erro na consulta dos jogadores')
+      this.ts.error('erro na requisição')
     }
   }
 
@@ -206,7 +204,7 @@ export class HomeComponent implements OnInit {
     
     try {
       if (this.time == undefined || this.liga == undefined || this.season ==undefined){
-        alert('Preencha os campos corretamente');
+        this.ts.warning('Preencha os campos')
         return
       }
       let con = await lastValueFrom(this.http.getStatistic(this.time.id, this.season, this.liga.id));
@@ -236,10 +234,10 @@ export class HomeComponent implements OnInit {
           loses: games.loses.total
         })
       }else{
-        alert('Não existe dados')
+        this.ts.warning('Não existe dados')
       }
     } catch (error) {
-      alert('Erro na requisição')
+      this.ts.error('erro na requisição')
       console.log(error)
     }
   }

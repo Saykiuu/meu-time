@@ -7,9 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { LandingComponent } from './landing/landing.component';
 import { AutoCompleteModule } from 'node_modules/primeng/autocomplete';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,9 @@ import { AutoCompleteModule } from 'node_modules/primeng/autocomplete';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    }),
     BrowserAnimationsModule,
     AutoCompleteModule,
     FormsModule,

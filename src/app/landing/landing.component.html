@@ -1,22 +1,35 @@
 <nav>
-    <ul>
-        <li>
-            <input type="text" class="form-control" placeholder="Chave de acesso">
-        </li>
-        <li><button class="btn">Login</button></li>
-    </ul>
-</nav>
-<section class="corpo"> 
-    <div class="logo">
-        <img src="assets/my-team-logo.png" alt="logo" width="500px">
+    <div class="inpts">
+        <input type="text" class="form-control mx-2" placeholder="Chave de acesso" [(ngModel)]="apikey">
+        
+        <button class="btn mx-2" (click)="logar()">Login</button>
     </div>
-    <div class="descricao">
-        <p>
-           <strong>Meu time</strong> é uma ferramenta para vocês que ama futebol poder acompanhar as principais informações de todos os times e ligas do mundo. Para ter acesso singa os passo abaixo:</p>
-        <ul >
-            <li>O primiero passo é criar usa conta na <a href="https://dashboard.api-football.com/register" target="iframe">API Football.</a></li>
-            <li>Entre com a chave de acesso no campo acima.</li>
-        </ul>
+     
+</nav>
+<section> 
+    <div class="content-body">
+        <div class="logo">
+            <img src="assets/my-team-logo.png" alt="logo" width="500px" height="auto">
+        </div>
+        <div class="desc">
+            <p>
+                <strong>Meu time</strong> é uma ferramenta para apaixonados pelo futebol poder acompanhar as principais
+                informações de todos os times e ligas do mundo.
+            </p>
+            <p>Siga os passos abaixo para ter acesso:</p>
+            <ul>
+                <li>Crie uma conta na <a href="https://dashboard.api-football.com/register" target="iframe">API Football.</a>
+                </li>
+                <li>No menu acesse <strong>Account</strong> > <strong>My Access</strong> </li>
+                <li>Copie a sua chave de acesso <strong>API-KEY</strong> no campo acima</li>
+            </ul>
+        </div>
     </div>
 </section>
 
+
+<div class="loading-bg" *ngIf="loading">
+    <div class="loading-center">
+        <div class="loader"></div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ export class RequestService {
   
   httpOptions = {
     headers: new HttpHeaders({
-      "x-rapidapi-key": "a1ed97c9259e7583336e37ad90fd6005",
+      "x-rapidapi-key": "03a0210a81e4f5a8a5e4b1060eafe197",
       "x-rapidapi-host": "v3.football.api-sports .io"
       
     })

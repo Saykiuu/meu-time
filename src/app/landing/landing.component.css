@@ -6,17 +6,10 @@ nav{
     background-color: var(--preto);
     height: 70px;
 }
-nav ul{
+
+.inpts{
     display: flex;
-    align-items: center;
-    margin: 0;
-    list-style: armenian;
-}
-nav ul li{
-    background-color: var(--sombra);
-    margin: 10px;
-    border-radius: 5px;
-   
+    width: 30%;
 }
 
 .btn{
@@ -24,25 +17,31 @@ nav ul li{
     color: var(--branco);
 }
 
-.corpo{
+section{
     height: calc(100vh - 70px);
+    background-image: linear-gradient(180deg, var(--preto), var(--principal));
     
-    background-image: linear-gradient(180deg, var(--preto), var(--fundo));
+    overflow-x: hidden;
+}
+.content-body{
+    margin-top: 10%;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    
+    width: 100vw;
 }
 
-.descricao{
-    width: 20%;
-    height: 50%;
-    margin: 10%;
-    color: var(--branco);
+.desc{
+    background-color: var(--fundo);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--sombra);
+    height: calc(min);
 }
+
 
 .descricao ul li{
-    list-style: circle;
+    padding: 10px;
+    list-style: outside;
 }
 
 a{
