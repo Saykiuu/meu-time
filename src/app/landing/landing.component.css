@@ -9,7 +9,7 @@ nav{
 
 .inpts{
     display: flex;
-    width: 30%;
+    width: 500px;
 }
 
 .btn{
@@ -19,30 +19,32 @@ nav{
 
 section{
     height: calc(100vh - 70px);
+    padding: 10px;
     background-image: linear-gradient(180deg, var(--preto), var(--principal));
-    
+    display: flex;
     overflow-x: hidden;
+    justify-content: center;
 }
 .content-body{
-    margin-top: 10%;
+    max-width: 500;
+    min-width: 90vw;
+    flex-direction: column;
     display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
+    align-items: center;
 }
 
 .desc{
+    min-width: 300px;
     background-color: var(--fundo);
     padding: 10px;
     border-radius: 10px;
     color: var(--sombra);
-    height: calc(min);
+    
+}
+.logo{
+    width: 500px;
 }
 
-
-.descricao ul li{
-    padding: 10px;
-    list-style: outside;
-}
 
 a{
     color: var(--principal);
